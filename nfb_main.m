@@ -70,8 +70,11 @@ try
     lastChunk = GetSecs();
         
     if ~cfg.debug
-        scinfo = Plot_bars_setup(cfg,window);
+        plotfunc = str2func(cfg.plotfunc);
+        setupfunc = str2func([cfg.plotfunc '_setup']);
+        scinfo = setupfunc(cfg,window);
     end
+    
     
     data = [];
     chunk = [];
@@ -152,7 +155,7 @@ try
                     end
                 end
                 
-                Plot_bars(cfg,window,scinfo,curThreshold)
+                plotfunc(cfg,window,scinfo,curThreshold)
 
                 
                 [keyIsDown,~,keyCode] = KbCheck;

@@ -11,6 +11,7 @@ cfg.chan = 6; %use orange wire
 cfg.chanloc = 'Fz';
 cfg.updatetime = 0.05; % update every 50 ms
 cfg.seglength = cfg.srate*2;
+cfg.plotfunc = 'Plot_bars';
 
 cfg.getthresh.tlimit = 120;
 cfg.getthresh.prctile = [70 70 70];
